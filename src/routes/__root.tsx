@@ -107,6 +107,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "https://storage.googleapis.com/gpt-engineer-file-uploads/yn1fdd7xfZargTnLbiovMcHThro2/social-images/social-1781542036599-IMG_8841.webp",
       },
+      { name: "description", content: "Mirror Project creates a 100% identical replica of a provided attachment." },
+      { property: "og:description", content: "Mirror Project creates a 100% identical replica of a provided attachment." },
+      { name: "twitter:description", content: "Mirror Project creates a 100% identical replica of a provided attachment." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d226b304-cf60-4e80-b7bb-f370ba77b0f3/id-preview-5cd34d13--4c5c0090-ecdc-4830-8ceb-c22034b42676.lovable.app-1782196150176.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d226b304-cf60-4e80-b7bb-f370ba77b0f3/id-preview-5cd34d13--4c5c0090-ecdc-4830-8ceb-c22034b42676.lovable.app-1782196150176.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
