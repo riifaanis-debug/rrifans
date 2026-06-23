@@ -29,8 +29,6 @@ import {
 } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 import patternImg from "@/assets/pattern.jpg";
-import rifanisLogo from "@/assets/rifanis-logo.png.asset.json";
-import rifanisLogoTransparent from "@/assets/rifanis-logo-transparent.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
