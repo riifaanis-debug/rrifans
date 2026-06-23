@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import {
   Shield,
   TrendingUp,
@@ -27,6 +28,7 @@ import {
   MessageCircle,
   Music,
 } from "lucide-react";
+import { submitContact } from "@/lib/contact.functions";
 import heroImg from "@/assets/hero.jpg";
 import patternImg from "@/assets/pattern.jpg";
 
@@ -858,6 +860,33 @@ function Partners() {
 /* ---------------- CONTACT ---------------- */
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const sendContact = useServerFn(submitContact);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    const formData = new FormData(e.currentTarget);
+    try {
+      await sendContact({
+        data: {
+          name: String(formData.get("name") ?? ""),
+          email: String(formData.get("email") ?? ""),
+          phone: String(formData.get("phone") ?? ""),
+          message: String(formData.get("message") ?? ""),
+        },
+      });
+      setSent(true);
+    } catch (err: any) {
+      setError(err?.message || "حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -941,10 +970,7 @@ function Contact() {
         </div>
 
         <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSent(true);
-          }}
+          onSubmit={handleSubmit}
           className="rounded-2xl md:rounded-3xl bg-cream p-5 md:p-8 shadow-luxe text-foreground"
           suppressHydrationWarning={true}
         >
@@ -965,6 +991,11 @@ function Contact() {
             </div>
           ) : (
             <div className="mt-5 md:mt-6 space-y-3 md:space-y-4">
+              {error && (
+                <div className="rounded-xl border border-red-300 bg-red-50 p-3 text-xs md:text-sm text-red-700 text-right">
+                  {error}
+                </div>
+              )}
               {[
                 { l: "الاسم الكامل", n: "name", type: "text" },
                 { l: "البريد الإلكتروني", n: "email", type: "email" },
@@ -999,9 +1030,16 @@ function Contact() {
               </div>
               <button
                 type="submit"
-                className="w-full inline-flex items-center justify-center gap-2 rounded-lg md:rounded-xl gradient-gold px-5 md:px-6 py-3 text-xs md:text-sm font-bold text-navy-deep shadow-luxe hover:opacity-95 transition"
+                disabled={loading}
+                className="w-full inline-flex items-center justify-center gap-2 rounded-lg md:rounded-xl gradient-gold px-5 md:px-6 py-3 text-xs md:text-sm font-bold text-navy-deep shadow-luxe hover:opacity-95 transition disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                إرسال الرسالة <ArrowLeft className="h-3.5 w-3.5 md:h-4 md:w-4" />
+                {loading ? (
+                  <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-navy-deep border-t-transparent" />
+                ) : (
+                  <>
+                    إرسال الرسالة <ArrowLeft className="h-3.5 w-3.5 md:h-4 md:w-4" />
+                  </>
+                )}
               </button>
             </div>
           )}
