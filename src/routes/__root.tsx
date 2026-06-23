@@ -77,19 +77,44 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "ريفانس المالية" },
+      {
+        name: "description",
+        content:
+          "ريفانس المالية: شركة سعودية متخصصة في الحلول والاستشارات المالية والعقارية والقانونية والمصرفية، مرخصة من البنك المركزي السعودي.",
+      },
+      { property: "og:title", content: "ريفانس المالية" },
+      {
+        property: "og:description",
+        content:
+          "ريفانس المالية: شركة سعودية متخصصة في الحلول والاستشارات المالية والعقارية والقانونية والمصرفية، مرخصة من البنك المركزي السعودي.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "ريفانس المالية" },
+      {
+        name: "twitter:description",
+        content:
+          "ريفانس المالية: شركة سعودية متخصصة في الحلول والاستشارات المالية والعقارية والقانونية والمصرفية، مرخصة من البنك المركزي السعودي.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/yn1fdd7xfZargTnLbiovMcHThro2/social-images/social-1781542036599-IMG_8841.webp",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/yn1fdd7xfZargTnLbiovMcHThro2/social-images/social-1781542036599-IMG_8841.webp",
+      },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Inter:wght@400;500;600;700;900&family=Cairo:wght@400;600;700;900&display=swap",
       },
     ],
   }),
@@ -101,7 +126,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="ar" dir="rtl" suppressHydrationWarning={true}>
       <head>
         <HeadContent />
       </head>
