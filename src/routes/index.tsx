@@ -79,11 +79,11 @@ function HomePage() {
 
 /* ---------------- HEADER ---------------- */
 function Logo({ light = false }: { light?: boolean }) {
-  const logoUrl = "/rifanis-logo-transparent.png";
+  const logoUrl = "/rifanis-logo-banner-transparent.png";
   if (light) {
     return (
-      <div className="inline-flex items-center bg-[#FAF9F5] p-2 md:p-3 rounded-2xl border border-[#C0AA72]/30 shadow-luxe transition-transform hover:scale-102">
-        <img src={logoUrl} alt="ريفانس المالية" className="h-10 md:h-12 w-auto object-contain" />
+      <div className="inline-flex items-center p-2 md:p-3 transition-transform hover:scale-102">
+        <img src={logoUrl} alt="ريفانس المالية" className="h-14 md:h-16 w-auto object-contain" />
       </div>
     );
   }
@@ -91,7 +91,7 @@ function Logo({ light = false }: { light?: boolean }) {
     <img
       src={logoUrl}
       alt="ريفانس المالية"
-      className="h-13 md:h-15 w-auto object-contain transition-transform hover:scale-102"
+      className="h-16 md:h-20 w-auto object-contain transition-transform hover:scale-102"
     />
   );
 }
