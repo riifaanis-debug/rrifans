@@ -125,6 +125,10 @@ h1, h2 {
   font-weight: 800;
 }
 
+.section-label {
+  font-weight: 600;
+}
+
 @utility gradient-navy {
   background-image: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 60%, #3d0f63 100%);
 }
