@@ -975,7 +975,6 @@ function Contact() {
               )}
               {[
                 { l: "الاسم الكامل", n: "name", type: "text" },
-                { l: "البريد الإلكتروني", n: "email", type: "email" },
                 { l: "رقم الجوال", n: "phone", type: "tel" },
               ].map((f) => (
                 <div key={f.n}>
