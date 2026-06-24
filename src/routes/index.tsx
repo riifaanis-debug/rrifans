@@ -308,20 +308,20 @@ function SectionHead({
     <div className="max-w-3xl">
       {kicker && (
         <div
-          className={`text-[10px] md:text-xs font-bold tracking-[0.25em] md:tracking-[0.3em] ${light ? "text-gold-soft" : "text-gold"}`}
+          className={`section-label ${light ? "text-gold-soft" : "text-gold"}`}
         >
           {kicker}
         </div>
       )}
       <h2
-        className={`mt-2 md:mt-3 font-display text-xl sm:text-2xl md:text-4xl font-black leading-tight ${light ? "text-cream" : "text-navy-deep"}`}
+        className={`mt-2 md:mt-3 font-display section-title ${light ? "text-cream" : "text-navy-deep"}`}
       >
         {title}
       </h2>
       <div className="gold-divider mt-3 md:mt-5" />
       {desc && (
         <p
-          className={`mt-3 md:mt-5 text-xs sm:text-sm md:text-base leading-relaxed md:leading-loose ${light ? "text-cream/80" : "text-muted-foreground"}`}
+          className={`mt-3 md:mt-5 section-description ${light ? "text-cream/80" : "text-muted-foreground"}`}
         >
           {desc}
         </p>
