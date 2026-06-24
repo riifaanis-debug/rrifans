@@ -1035,12 +1035,13 @@ function Footer() {
             حلول مالية وعقارية احترافية تجمع بين الخبرة والتقنية لتقديم قيمة حقيقية ومستدامة.
           </p>
           {/* Social media links row inside Footer */}
-          <div className="mt-5 flex items-center gap-3">
+          <div className="mt-5 flex items-center gap-3" dir="rtl">
             {[
-              { i: Twitter, label: "X.com", href: "https://x.com/rifaniis" },
-              { i: Instagram, label: "Instagram", href: "https://www.instagram.com/rifaniis/" },
-              { i: MessageCircle, label: "WhatsApp", href: "https://wa.me/966553550496" },
-              { i: Music, label: "TikTok", href: "https://www.tiktok.com/@rifans.r" },
+              { i: WhatsAppIcon, label: "WhatsApp", href: "https://wa.me/966553550496" },
+              { i: MailIcon, label: "Email", href: "mailto:r.iifaanis@gmail.com" },
+              { i: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/rifaniis/" },
+              { i: XIcon, label: "X.com", href: "https://x.com/rifaniis" },
+              { i: TikTokIcon, label: "TikTok", href: "https://www.tiktok.com/@rifans.r" },
             ].map((s) => (
               <a
                 key={s.label}
