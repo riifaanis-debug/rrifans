@@ -23,12 +23,9 @@ import {
   Quote,
   Menu,
   X,
-  Twitter,
-  Instagram,
-  MessageCircle,
-  Music,
 } from "lucide-react";
 import { submitContact } from "@/lib/contact.functions";
+import { WhatsAppIcon, MailIcon, InstagramIcon, XIcon, TikTokIcon } from "@/components/SocialIcons";
 import heroImg from "@/assets/hero.jpg";
 import patternImg from "@/assets/pattern.jpg";
 
@@ -308,20 +305,20 @@ function SectionHead({
     <div className="max-w-3xl">
       {kicker && (
         <div
-          className={`text-[10px] md:text-xs font-bold tracking-[0.25em] md:tracking-[0.3em] ${light ? "text-gold-soft" : "text-gold"}`}
+          className={`section-label ${light ? "text-gold-soft" : "text-gold"}`}
         >
           {kicker}
         </div>
       )}
       <h2
-        className={`mt-2 md:mt-3 font-display text-xl sm:text-2xl md:text-4xl font-black leading-tight ${light ? "text-cream" : "text-navy-deep"}`}
+        className={`mt-2 md:mt-3 font-display section-title ${light ? "text-cream" : "text-navy-deep"}`}
       >
         {title}
       </h2>
       <div className="gold-divider mt-3 md:mt-5" />
       {desc && (
         <p
-          className={`mt-3 md:mt-5 text-xs sm:text-sm md:text-base leading-relaxed md:leading-loose ${light ? "text-cream/80" : "text-muted-foreground"}`}
+          className={`mt-3 md:mt-5 section-description ${light ? "text-cream/80" : "text-muted-foreground"}`}
         >
           {desc}
         </p>
@@ -874,7 +871,6 @@ function Contact() {
       await sendContact({
         data: {
           name: String(formData.get("name") ?? ""),
-          email: String(formData.get("email") ?? ""),
           phone: String(formData.get("phone") ?? ""),
           message: String(formData.get("message") ?? ""),
         },
@@ -943,29 +939,6 @@ function Contact() {
                 </div>
               );
             })}
-
-            {/* Social Media Links Row */}
-            <div className="mt-8 pt-4 border-t border-cream/10">
-              <div className="flex items-center justify-center gap-3">
-                {[
-                  { i: Twitter, label: "X.com", href: "https://x.com/rifaniis" },
-                  { i: Instagram, label: "Instagram", href: "https://www.instagram.com/rifaniis/" },
-                  { i: MessageCircle, label: "WhatsApp", href: "https://wa.me/966553550496" },
-                  { i: Music, label: "TikTok", href: "https://www.tiktok.com/@rifans.r" },
-                ].map((s) => (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-navy-deep hover:bg-[#C0AA72] text-[#C0AA72] hover:text-navy-deep border border-[#C0AA72]/20 hover:border-[#C0AA72] transition-all duration-300 shadow-[0_4px_12px_rgba(0,0,0,0.1)]"
-                    title={s.label}
-                  >
-                    <s.i className="h-5 w-5" />
-                  </a>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
 
@@ -974,7 +947,7 @@ function Contact() {
           className="rounded-2xl md:rounded-3xl bg-cream p-5 md:p-8 shadow-luxe text-foreground"
           suppressHydrationWarning={true}
         >
-          <h3 className="font-display text-lg md:text-2xl font-bold text-navy-deep">أرسل رسالتك</h3>
+          <h3 className="font-display text-lg md:text-2xl font-bold text-navy-deep">تواصل معنا</h3>
           <p className="mt-1 text-xs md:text-sm text-muted-foreground">
             سنرد عليك خلال 24 ساعة عمل.
           </p>
@@ -998,7 +971,6 @@ function Contact() {
               )}
               {[
                 { l: "الاسم الكامل", n: "name", type: "text" },
-                { l: "البريد الإلكتروني", n: "email", type: "email" },
                 { l: "رقم الجوال", n: "phone", type: "tel" },
               ].map((f) => (
                 <div key={f.n}>
@@ -1060,12 +1032,13 @@ function Footer() {
             حلول مالية وعقارية احترافية تجمع بين الخبرة والتقنية لتقديم قيمة حقيقية ومستدامة.
           </p>
           {/* Social media links row inside Footer */}
-          <div className="mt-5 flex items-center gap-3">
+          <div className="mt-5 flex items-center gap-3" dir="rtl">
             {[
-              { i: Twitter, label: "X.com", href: "https://x.com/rifaniis" },
-              { i: Instagram, label: "Instagram", href: "https://www.instagram.com/rifaniis/" },
-              { i: MessageCircle, label: "WhatsApp", href: "https://wa.me/966553550496" },
-              { i: Music, label: "TikTok", href: "https://www.tiktok.com/@rifans.r" },
+              { i: WhatsAppIcon, label: "WhatsApp", href: "https://wa.me/966553550496" },
+              { i: MailIcon, label: "Email", href: "mailto:r.iifaanis@gmail.com" },
+              { i: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/rifaniis/" },
+              { i: XIcon, label: "X.com", href: "https://x.com/rifaniis" },
+              { i: TikTokIcon, label: "TikTok", href: "https://www.tiktok.com/@rifans.r" },
             ].map((s) => (
               <a
                 key={s.label}

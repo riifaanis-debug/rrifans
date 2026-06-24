@@ -4,7 +4,7 @@ import { z } from "zod";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "الاسم مطلوب").max(100),
-  email: z.string().trim().email("بريد إلكتروني غير صالح").max(255),
+  email: z.string().trim().email("بريد إلكتروني غير صالح").max(255).optional(),
   phone: z.string().trim().max(50).optional(),
   message: z.string().trim().min(1, "الرسالة مطلوبة").max(2000),
 });
