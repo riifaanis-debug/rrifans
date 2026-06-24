@@ -29,6 +29,7 @@ import {
   Music,
 } from "lucide-react";
 import { submitContact } from "@/lib/contact.functions";
+import { WhatsAppIcon, MailIcon, InstagramIcon, XIcon, TikTokIcon } from "@/components/SocialIcons";
 import heroImg from "@/assets/hero.jpg";
 import patternImg from "@/assets/pattern.jpg";
 
