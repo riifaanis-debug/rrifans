@@ -874,7 +874,6 @@ function Contact() {
       await sendContact({
         data: {
           name: String(formData.get("name") ?? ""),
-          email: String(formData.get("email") ?? ""),
           phone: String(formData.get("phone") ?? ""),
           message: String(formData.get("message") ?? ""),
         },
