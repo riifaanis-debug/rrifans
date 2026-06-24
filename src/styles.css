@@ -100,14 +100,14 @@
 /* ---------- Unified section typography ---------- */
 .section-title,
 h1, h2 {
-  font-size: clamp(30px, 8vw, 34px) !important;
+  font-size: clamp(15px, 4.4vw, 28px) !important;
   line-height: 1.45 !important;
   letter-spacing: 0 !important;
   word-spacing: 0 !important;
   max-width: 100% !important;
   overflow-wrap: normal !important;
-  word-break: normal !important;
-  white-space: normal !important;
+  word-break: keep-all !important;
+  white-space: nowrap !important;
 }
 
 .section-label {
