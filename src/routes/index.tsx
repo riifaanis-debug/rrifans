@@ -951,7 +951,7 @@ function Contact() {
           className="rounded-2xl md:rounded-3xl bg-cream p-5 md:p-8 shadow-luxe text-foreground"
           suppressHydrationWarning={true}
         >
-          <h3 className="font-display text-lg md:text-2xl font-bold text-navy-deep">أرسل رسالتك</h3>
+          <h3 className="font-display text-lg md:text-2xl font-bold text-navy-deep">تواصل معنا</h3>
           <p className="mt-1 text-xs md:text-sm text-muted-foreground">
             سنرد عليك خلال 24 ساعة عمل.
           </p>
