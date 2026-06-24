@@ -98,33 +98,35 @@
 }
 
 /* ---------- Unified section typography ---------- */
+.section-title,
+h1, h2 {
+  font-size: clamp(30px, 8vw, 34px) !important;
+  line-height: 1.45 !important;
+  letter-spacing: 0 !important;
+  word-spacing: 0 !important;
+  max-width: 100% !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  white-space: normal !important;
+}
+
 .section-label {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 14px !important;
   letter-spacing: 0 !important;
 }
+
+.section-description,
+.section-subtitle {
+  font-size: 18px !important;
+  line-height: 2 !important;
+}
+
 .section-title {
-  font-size: 38px;
   font-weight: 800;
-  letter-spacing: 0 !important;
-  line-height: 1.4;
 }
-.section-description {
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 2;
-  letter-spacing: 0 !important;
-}
-@media (min-width: 768px) {
-  .section-label {
-    font-size: 16px;
-  }
-  .section-title {
-    font-size: 52px;
-  }
-  .section-description {
-    font-size: 19px;
-  }
+
+.section-label {
+  font-weight: 600;
 }
 
 @utility gradient-navy {
