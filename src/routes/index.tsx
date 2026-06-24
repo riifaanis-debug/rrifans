@@ -943,29 +943,6 @@ function Contact() {
                 </div>
               );
             })}
-
-            {/* Social Media Links Row */}
-            <div className="mt-8 pt-4 border-t border-cream/10">
-              <div className="flex items-center justify-center gap-3">
-                {[
-                  { i: Twitter, label: "X.com", href: "https://x.com/rifaniis" },
-                  { i: Instagram, label: "Instagram", href: "https://www.instagram.com/rifaniis/" },
-                  { i: MessageCircle, label: "WhatsApp", href: "https://wa.me/966553550496" },
-                  { i: Music, label: "TikTok", href: "https://www.tiktok.com/@rifans.r" },
-                ].map((s) => (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-navy-deep hover:bg-[#C0AA72] text-[#C0AA72] hover:text-navy-deep border border-[#C0AA72]/20 hover:border-[#C0AA72] transition-all duration-300 shadow-[0_4px_12px_rgba(0,0,0,0.1)]"
-                    title={s.label}
-                  >
-                    <s.i className="h-5 w-5" />
-                  </a>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
 
