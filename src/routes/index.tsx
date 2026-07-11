@@ -590,32 +590,29 @@ function Services() {
           desc="نُرافقك في كل خطوة بحلول مرنة، سرّية، ومسؤولة تساعدك على استعادة التوازن المالي وتحقيق الاستقرار والنمو المستدام."
         />
 
-        <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="mt-10 md:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {services.map(({ i: Icon, t, d }) => (
             <div
               key={t}
-              className="group relative overflow-hidden rounded-3xl bg-card p-6 md:p-8 border border-gold/15 hover:border-gold/45 transition-all duration-500 hover:shadow-[0_22px_45px_rgba(212,175,55,0.06)] hover:-translate-y-1.5 flex flex-col justify-between"
+              className="group relative flex h-full flex-col overflow-hidden rounded-2xl bg-card p-5 md:p-6 border border-gold/25 shadow-[0_6px_20px_rgba(27,3,45,0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:border-gold/50 hover:shadow-[0_16px_36px_rgba(201,162,74,0.18)]"
             >
-              {/* Corner soft glowing reflection */}
-              <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full gradient-gold opacity-0 blur-2xl group-hover:opacity-10 transition duration-700 pointer-events-none" />
-
-              <div>
-                {/* Heading with smooth colors transition */}
-                <h3 className="font-display text-lg md:text-xl font-black text-navy-deep group-hover:text-gold transition-colors duration-300">
-                  {t}
-                </h3>
-
-                {/* Thin gold styling accent */}
-                <div className="h-[2px] w-8 bg-gold mt-2.5 rounded-full transition-all duration-500 group-hover:w-20" />
-
-                {/* Description */}
-                <p className="mt-4 text-xs md:text-sm text-muted-foreground leading-relaxed md:leading-loose text-justify">
-                  {d}
-                </p>
+              {/* Gold icon */}
+              <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gold/10 text-gold ring-1 ring-gold/20 transition-colors duration-300 group-hover:bg-gold/15">
+                <Icon className="h-6 w-6" />
               </div>
 
-              {/* Bottom Expandable Gradient Accent Line */}
-              <div className="h-[3px] w-0 bg-gradient-to-r from-gold/30 via-gold/90 to-gold/30 absolute bottom-0 right-0 left-0 mx-auto group-hover:w-2/3 transition-all duration-500 rounded-full" />
+              {/* Title – dark purple, prominent */}
+              <h3 className="mt-4 font-display text-lg md:text-xl font-black text-navy-deep">
+                {t}
+              </h3>
+
+              {/* Thin gold accent */}
+              <div className="mt-2 h-[2px] w-8 rounded-full bg-gold transition-all duration-300 group-hover:w-16" />
+
+              {/* Description – right aligned */}
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed text-right">
+                {d}
+              </p>
             </div>
           ))}
         </div>
