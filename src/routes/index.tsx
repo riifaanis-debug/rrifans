@@ -59,7 +59,7 @@ const nav = [
 function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="mobile-compact min-h-screen bg-background text-foreground">
       <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <Hero />
       <StatsGrid />
@@ -81,8 +81,8 @@ function Logo({ light = false }: { light?: boolean }) {
   const logoUrl = "/rifanis-logo-banner-transparent.png";
   if (light) {
     return (
-      <div className="inline-flex items-center p-2 md:p-3 transition-transform hover:scale-102">
-        <img src={logoUrl} alt="ريفانس المالية" className="h-14 md:h-16 w-auto object-contain" />
+      <div className="inline-flex items-center p-1.5 md:p-3 transition-transform hover:scale-102">
+        <img src={logoUrl} alt="ريفانس المالية" className="h-11 md:h-16 w-auto object-contain" />
       </div>
     );
   }
@@ -90,7 +90,7 @@ function Logo({ light = false }: { light?: boolean }) {
     <img
       src={logoUrl}
       alt="ريفانس المالية"
-      className="h-16 md:h-20 w-auto object-contain transition-transform hover:scale-102"
+      className="h-12 md:h-20 w-auto object-contain transition-transform hover:scale-102"
     />
   );
 }
@@ -104,7 +104,7 @@ function Header({
 }) {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-[#FAF9F5]/95 border-b border-[#C0AA72]/20 shadow-[0_4px_25px_rgba(192,170,114,0.06)]">
-      <div className="mx-auto max-w-7xl px-5 py-3 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 lg:flex lg:justify-between">
+      <div className="mx-auto max-w-7xl px-4 py-2 md:px-5 md:py-3 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 lg:flex lg:justify-between">
         <a href="/" className="block">
           <Logo />
         </a>
@@ -122,7 +122,7 @@ function Header({
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="القائمة"
-          className="lg:hidden grid h-10 w-10 place-items-center rounded-md border border-border text-navy-deep"
+          className="lg:hidden grid h-9 w-9 place-items-center rounded-md border border-border text-navy-deep"
         >
           {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
@@ -205,15 +205,15 @@ function StatsGrid() {
   ];
 
   return (
-    <div className="bg-[#FAF9F5] py-4 md:py-8 px-4">
+    <div className="bg-[#FAF9F5] py-3 md:py-8 px-3 md:px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
           {stats.map((stat, i) => (
             <div
               key={i}
-              className="bg-white rounded-2xl p-6 md:p-8 flex flex-col items-center justify-center text-center shadow-[0_10px_35px_rgba(0,0,0,0.03)] border border-[#C0AA72]/10 transition-all duration-300 hover:shadow-[0_15px_45px_rgba(192,170,114,0.12)] hover:-translate-y-1"
+              className="bg-white rounded-xl md:rounded-2xl p-4 md:p-8 flex flex-col items-center justify-center text-center shadow-[0_10px_35px_rgba(0,0,0,0.03)] border border-[#C0AA72]/10 transition-all duration-300 hover:shadow-[0_15px_45px_rgba(192,170,114,0.12)] hover:-translate-y-1"
             >
-              <div className="text-3xl md:text-4xl lg:text-5xl font-black text-[#C0AA72] tracking-tight mb-2">
+              <div className="text-2xl md:text-4xl lg:text-5xl font-black text-[#C0AA72] tracking-tight mb-1.5 md:mb-2">
                 {stat.value}
               </div>
               <div className="text-xs md:text-sm font-bold text-navy-deep opacity-80">
@@ -231,7 +231,7 @@ function StatsGrid() {
 function Hero() {
   return (
     <section
-      className="relative overflow-hidden bg-[#130722] text-cream min-h-[75vh] flex flex-col justify-center bg-cover bg-center"
+      className="relative overflow-hidden bg-[#130722] text-cream min-h-[64vh] md:min-h-[75vh] flex flex-col justify-center bg-cover bg-center"
       style={{
         backgroundImage: "url('/skyline.jpg')",
         clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 40px), 0 100%)",
@@ -245,20 +245,20 @@ function Hero() {
       <OrnamentTop />
       <OrnamentBottom />
 
-      <div className="relative mx-auto max-w-7xl px-5 pt-10 pb-16 md:pt-14 md:pb-20 lg:pt-16 lg:pb-24 z-10 w-full flex flex-col items-end">
+      <div className="relative mx-auto max-w-7xl px-4 pt-7 pb-12 md:px-5 md:pt-14 md:pb-20 lg:pt-16 lg:pb-24 z-10 w-full flex flex-col items-end">
         {/* Content Section - Align to Right */}
         <div className="text-right max-w-4xl w-full">
           <h1 className="font-display text-[15px] min-[375px]:text-lg min-[425px]:text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black leading-tight text-white tracking-wide whitespace-nowrap">
             ريفانس المالية | <span className="font-sans text-[#C0AA72]">Revans Finance</span>
           </h1>
 
-          <p className="mt-2 text-xs min-[375px]:text-sm sm:text-lg md:text-xl lg:text-2xl font-bold text-[#C0AA72]">
+          <p className="mt-1.5 text-[11px] min-[375px]:text-xs sm:text-lg md:text-xl lg:text-2xl font-bold text-[#C0AA72]">
             شركة سعودية ذات مسؤولية محدودة
           </p>
 
           {/* Golden divider with central circle aligned to the right */}
           <div
-            className="my-6 md:my-8 flex items-center gap-3 w-full max-w-[280px] justify-start"
+            className="my-4 md:my-8 flex items-center gap-2.5 md:gap-3 w-full max-w-[240px] md:max-w-[280px] justify-start"
             dir="rtl"
           >
             <span className="h-[1px] w-24 bg-[#C0AA72]/30" />
@@ -267,7 +267,7 @@ function Hero() {
           </div>
 
           <div
-            className="space-y-6 max-w-3xl text-sm sm:text-base md:text-lg text-[#FAF9F5] leading-relaxed md:leading-loose"
+            className="space-y-4 md:space-y-6 max-w-3xl text-xs sm:text-base md:text-lg text-[#FAF9F5] leading-relaxed md:leading-loose"
             dir="rtl"
           >
             <p className="opacity-95">
@@ -357,7 +357,7 @@ function VisionMission() {
   return (
     <section
       id="vision"
-      className="relative py-10 md:py-16 bg-background text-navy-deep overflow-hidden"
+      className="relative py-7 md:py-16 bg-background text-navy-deep overflow-hidden"
     >
       {/* Dynamic ambient backgrounds */}
       <img
@@ -376,7 +376,7 @@ function VisionMission() {
         />
 
         {/* Interactive Timeline Tape */}
-        <div className="relative mt-8 md:mt-12 max-w-3xl mx-auto px-4">
+        <div className="relative mt-6 md:mt-12 max-w-3xl mx-auto px-2 md:px-4">
           {/* Connecting Line */}
           <div className="absolute left-6 right-6 h-[4px] md:h-[6px] bg-[#C0AA72] top-1/2 -translate-y-1/2 z-0" />
 
@@ -388,7 +388,7 @@ function VisionMission() {
                 <button
                   key={tab.id}
                   onClick={() => setSelectedTab(tab.id)}
-                  className={`w-[28%] text-center py-2.5 sm:py-4 px-2 font-display text-sm sm:text-lg md:text-2xl font-black transition-all duration-300 pointer-events-auto cursor-pointer border-[#C0AA72] border-2 rounded-xl sm:rounded-2xl relative z-20
+                  className={`w-[28%] text-center py-2 sm:py-4 px-1.5 sm:px-2 font-display text-xs sm:text-lg md:text-2xl font-black transition-all duration-300 pointer-events-auto cursor-pointer border-[#C0AA72] border-2 rounded-lg sm:rounded-2xl relative z-20
                     ${
                       isActive
                         ? "bg-[#C0AA72] text-[#2A0845] scale-105 shadow-[0_10px_25px_rgba(192,170,114,0.35)] ring-4 ring-[#C0AA72]/20"
@@ -403,12 +403,12 @@ function VisionMission() {
         </div>
 
         {/* Dynamic Display Window (Popup Style) */}
-        <div className="mt-6 md:mt-8 max-w-3xl mx-auto relative group">
+        <div className="mt-5 md:mt-8 max-w-3xl mx-auto relative group">
           {/* Glassmorphism Backdrop Shadow */}
           <div className="absolute inset-0 bg-[#C0AA72]/5 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity pointer-events-none" />
 
           {/* Active Window */}
-          <div className="relative rounded-3xl bg-[#FAF9F5] border-2 border-[#C0AA72]/30 p-6 sm:p-10 shadow-[0_15px_35px_rgba(192,170,114,0.08)] transition-all duration-500 hover:border-[#C0AA72]/50">
+          <div className="relative rounded-2xl md:rounded-3xl bg-[#FAF9F5] border-2 border-[#C0AA72]/30 p-4 sm:p-10 shadow-[0_15px_35px_rgba(192,170,114,0.08)] transition-all duration-500 hover:border-[#C0AA72]/50">
             {/* Active indicator arrow pointing precisely to selected button */}
             <div
               className="absolute -top-[10px] h-4 w-4 rotate-45 border-t-2 border-l-2 border-[#C0AA72]/30 bg-[#FAF9F5] transition-all duration-500 ease-out"
@@ -421,17 +421,17 @@ function VisionMission() {
             <div className="text-right" dir="rtl">
               {/* Title heading with dot */}
               <div className="flex items-center justify-start gap-2 select-none">
-                <h3 className="font-display text-2xl sm:text-3xl font-black text-navy-deep">
+                <h3 className="font-display text-lg sm:text-3xl font-black text-navy-deep">
                   {currentData.t}
                 </h3>
                 <span className="h-2 w-2 rounded-full bg-[#C0AA72] inline-block mt-1" />
               </div>
 
               {/* Accent styling line */}
-              <div className="h-[2px] w-12 bg-[#C0AA72] mt-3 mb-6" />
+              <div className="h-[2px] w-10 md:w-12 bg-[#C0AA72] mt-2.5 mb-4 md:mt-3 md:mb-6" />
 
               {/* Content description */}
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed md:leading-loose text-justify font-sans">
+              <p className="text-xs sm:text-base md:text-lg text-muted-foreground leading-relaxed md:leading-loose text-justify font-sans">
                 {currentData.d}
               </p>
             </div>
@@ -496,7 +496,7 @@ function Sectors() {
   const duplicatedSectors = [...sectors, ...sectors, ...sectors, ...sectors];
 
   return (
-    <section id="sectors" className="py-8 md:py-12 bg-background overflow-hidden">
+    <section id="sectors" className="py-7 md:py-12 bg-background overflow-hidden">
       <div className="mx-auto max-w-7xl px-4">
         <SectionHead
           kicker="مجالات أعمالنا"
@@ -505,22 +505,22 @@ function Sectors() {
         />
       </div>
 
-      <div className="relative mt-8 md:mt-12 overflow-hidden py-4 w-full" dir="ltr">
+      <div className="relative mt-6 md:mt-12 overflow-hidden py-3 md:py-4 w-full" dir="ltr">
         {/* Faint shadows/gradients masking are used on side edges for elegant integration */}
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 md:w-32 bg-gradient-to-r from-background via-background/60 to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 md:w-32 bg-gradient-to-l from-background via-background/60 to-transparent" />
 
         {/* Endless scrolling track using optimized accelerated CSS animation */}
-        <div className="flex gap-4 md:gap-6 animate-marquee py-2 select-none">
+        <div className="flex gap-3 md:gap-6 animate-marquee py-2 select-none">
           {duplicatedSectors.map(({ icon: Icon, t, items }, idx) => (
             <article
               key={`${t}-${idx}`}
               dir="rtl"
-              className="w-[280px] md:w-[350px] shrink-0 card-elevated rounded-2xl md:rounded-3xl p-5 md:p-7 transition-all duration-300 hover:shadow-xl hover:border-gold/50 hover:bg-card/95"
+              className="w-[250px] md:w-[350px] shrink-0 card-elevated rounded-xl md:rounded-3xl p-4 md:p-7 transition-all duration-300 hover:shadow-xl hover:border-gold/50 hover:bg-card/95"
             >
               <div className="flex items-start gap-3 md:gap-5">
-                <div className="grid h-11 w-11 md:h-14 md:w-14 shrink-0 place-items-center rounded-xl md:rounded-2xl gradient-navy text-gold shadow-luxe">
-                  <Icon className="h-5 w-5 md:h-7 md:w-7" />
+                <div className="grid h-9 w-9 md:h-14 md:w-14 shrink-0 place-items-center rounded-lg md:rounded-2xl gradient-navy text-gold shadow-luxe">
+                  <Icon className="h-4 w-4 md:h-7 md:w-7" />
                 </div>
                 <div className="min-w-0">
                   <h3 className="font-display text-base md:text-xl font-bold text-navy-deep">
@@ -528,7 +528,7 @@ function Sectors() {
                   </h3>
                 </div>
               </div>
-              <ul className="mt-4 md:mt-6 space-y-2 md:space-y-2.5 text-right">
+              <ul className="mt-3 md:mt-6 space-y-1.5 md:space-y-2.5 text-right">
                 {items.map((it) => (
                   <li
                     key={it}
@@ -582,7 +582,7 @@ function Services() {
     },
   ];
   return (
-    <section id="services" className="py-10 md:py-16 bg-cream">
+    <section id="services" className="py-7 md:py-16 bg-cream">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <SectionHead
           kicker="خدماتنا"
@@ -590,19 +590,19 @@ function Services() {
           desc="نُرافقك في كل خطوة بحلول مرنة، سرّية، ومسؤولة تساعدك على استعادة التوازن المالي وتحقيق الاستقرار والنمو المستدام."
         />
 
-        <div className="mt-10 md:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+        <div className="mt-6 md:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
           {services.map(({ i: Icon, t, d }) => (
             <div
               key={t}
-              className="group relative flex h-full flex-col overflow-hidden rounded-2xl bg-card p-5 md:p-6 border border-gold/25 shadow-[0_6px_20px_rgba(27,3,45,0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:border-gold/50 hover:shadow-[0_16px_36px_rgba(201,162,74,0.18)]"
+              className="group relative flex h-full flex-col overflow-hidden rounded-xl md:rounded-2xl bg-card p-4 md:p-6 border border-gold/25 shadow-[0_6px_20px_rgba(27,3,45,0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:border-gold/50 hover:shadow-[0_16px_36px_rgba(201,162,74,0.18)]"
             >
               {/* Gold icon */}
-              <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gold/10 text-gold ring-1 ring-gold/20 transition-colors duration-300 group-hover:bg-gold/15">
-                <Icon className="h-6 w-6" />
+              <div className="grid h-10 w-10 md:h-12 md:w-12 shrink-0 place-items-center rounded-lg md:rounded-xl bg-gold/10 text-gold ring-1 ring-gold/20 transition-colors duration-300 group-hover:bg-gold/15">
+                <Icon className="h-5 w-5 md:h-6 md:w-6" />
               </div>
 
               {/* Title – dark purple, prominent */}
-              <h3 className="mt-4 font-display text-lg md:text-xl font-black text-navy-deep">
+              <h3 className="mt-3 md:mt-4 font-display text-base md:text-xl font-black text-navy-deep">
                 {t}
               </h3>
 
@@ -610,7 +610,7 @@ function Services() {
               <div className="mt-2 h-[2px] w-8 rounded-full bg-gold transition-all duration-300 group-hover:w-16" />
 
               {/* Description – right aligned */}
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed text-right">
+              <p className="mt-2.5 md:mt-3 text-xs md:text-sm text-muted-foreground leading-relaxed text-right">
                 {d}
               </p>
             </div>
@@ -640,7 +640,7 @@ function Values() {
   return (
     <section
       id="values"
-      className="relative py-10 md:py-16 bg-background text-navy-deep overflow-hidden"
+      className="relative py-7 md:py-16 bg-background text-navy-deep overflow-hidden"
     >
       <div className="relative mx-auto max-w-7xl px-4 md:px-6">
         <SectionHead
@@ -650,7 +650,7 @@ function Values() {
         />
 
         {/* Interactive Timeline Tape */}
-        <div className="relative mt-8 md:mt-12 max-w-4xl mx-auto px-4">
+        <div className="relative mt-6 md:mt-12 max-w-4xl mx-auto px-2 md:px-4">
           {/* Connecting Line */}
           <div className="absolute left-6 right-6 h-[4px] md:h-[6px] bg-[#C0AA72] top-1/2 -translate-y-1/2 z-0" />
 
@@ -677,12 +677,12 @@ function Values() {
         </div>
 
         {/* Dynamic Display Window (Popup Style) */}
-        <div className="mt-12 max-w-4xl mx-auto relative group">
+        <div className="mt-8 md:mt-12 max-w-4xl mx-auto relative group">
           {/* Glassmorphism Backdrop Shadow */}
           <div className="absolute inset-0 bg-[#C0AA72]/5 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity pointer-events-none" />
 
           {/* Active Window */}
-          <div className="relative rounded-3xl bg-[#FAF9F5] border-2 border-[#C0AA72]/30 p-6 sm:p-10 shadow-[0_15px_35px_rgba(192,170,114,0.08)] transition-all duration-500 hover:border-[#C0AA72]/50">
+          <div className="relative rounded-2xl md:rounded-3xl bg-[#FAF9F5] border-2 border-[#C0AA72]/30 p-4 sm:p-10 shadow-[0_15px_35px_rgba(192,170,114,0.08)] transition-all duration-500 hover:border-[#C0AA72]/50">
             {/* Active indicator arrow pointing precisely to selected button */}
             <div
               className="absolute -top-[10px] h-4 w-4 rotate-45 border-t-2 border-l-2 border-[#C0AA72]/30 bg-[#FAF9F5] transition-all duration-500 ease-out"
@@ -695,17 +695,17 @@ function Values() {
             <div className="text-right" dir="rtl">
               {/* Title heading with dot */}
               <div className="flex items-center justify-start gap-2 select-none">
-                <h3 className="font-display text-2xl sm:text-3xl font-black text-navy-deep">
+                <h3 className="font-display text-lg sm:text-3xl font-black text-navy-deep">
                   {currentData.t}
                 </h3>
                 <span className="h-2 w-2 rounded-full bg-[#C0AA72] inline-block mt-1" />
               </div>
 
               {/* Accent styling line */}
-              <div className="h-[2px] w-12 bg-[#C0AA72] mt-3 mb-6" />
+              <div className="h-[2px] w-10 md:w-12 bg-[#C0AA72] mt-2.5 mb-4 md:mt-3 md:mb-6" />
 
               {/* Content description */}
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed md:leading-loose text-justify font-sans">
+              <p className="text-xs sm:text-base md:text-lg text-muted-foreground leading-relaxed md:leading-loose text-justify font-sans">
                 {currentData.d}
               </p>
             </div>
@@ -736,12 +736,12 @@ function Testimonials() {
     },
   ];
   return (
-    <section className="py-8 md:py-12 bg-cream">
+    <section className="py-7 md:py-12 bg-cream">
       <div className="mx-auto max-w-7xl px-4">
         <SectionHead kicker="تجارب عملائنا" title="ثقة عملائنا هي إنجازنا الحقيقي" />
-        <div className="mt-8 md:mt-12 grid md:grid-cols-3 gap-4 md:gap-6">
+        <div className="mt-6 md:mt-12 grid md:grid-cols-3 gap-3 md:gap-6">
           {t.map((it) => (
-            <figure key={it.q} className="card-elevated rounded-2xl md:rounded-3xl p-5 md:p-8">
+            <figure key={it.q} className="card-elevated rounded-xl md:rounded-3xl p-4 md:p-8">
               <Quote className="h-6 w-6 md:h-8 md:w-8 text-gold" />
               <div className="mt-3 md:mt-4 flex gap-0.5">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -768,13 +768,13 @@ function Testimonials() {
 /* ---------------- FOUNDER ---------------- */
 function Founder() {
   return (
-    <section className="py-8 md:py-12 bg-background">
+    <section className="py-7 md:py-12 bg-background">
       <div className="mx-auto max-w-5xl px-4">
         <SectionHead kicker="كلمة المؤسس" title="من فكرة .. إلى علامة تجارية رائدة" />
-        <div className="mt-6 md:mt-10 card-elevated rounded-2xl md:rounded-3xl p-5 md:p-10 relative overflow-hidden">
+        <div className="mt-5 md:mt-10 card-elevated rounded-xl md:rounded-3xl p-4 md:p-10 relative overflow-hidden">
           <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full gradient-gold opacity-10 blur-3xl" />
           <Quote className="h-8 w-8 md:h-10 md:w-10 text-gold" />
-          <div className="mt-4 md:mt-5 space-y-3 md:space-y-5 text-xs md:text-sm text-foreground/85 leading-relaxed md:leading-loose">
+          <div className="mt-3 md:mt-5 space-y-2.5 md:space-y-5 text-[11px] md:text-sm text-foreground/85 leading-relaxed md:leading-loose">
             <p>
               جاءت فكرة تأسيس ريفانس المالية من قناعة راسخة بأن القطاع المالي والعقاري بحاجة إلى
               مفهوم أكثر احترافية ومرونة، مفهوم لا يقتصر على تقديم الخدمة، بل يمتد ليكون شريكاً
@@ -820,7 +820,7 @@ function Partners() {
     "وزارة الاستثمار",
   ];
   return (
-    <section className="py-8 md:py-10 bg-cream border-y border-border">
+    <section className="py-7 md:py-10 bg-cream border-y border-border">
       <div className="mx-auto max-w-7xl px-4">
         <div className="text-center">
           <div className="text-[10px] md:text-xs font-bold tracking-[0.25em] md:tracking-[0.3em] text-gold">
@@ -831,14 +831,14 @@ function Partners() {
           </h2>
           <div className="gold-divider mt-3 md:mt-5 mx-auto" />
         </div>
-        <div className="mt-8 md:mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
+        <div className="mt-6 md:mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2.5 md:gap-4">
           {p.map((name) => (
             <div
               key={name}
-              className="group relative rounded-xl md:rounded-2xl border border-border bg-card p-3 md:p-5 text-center hover:border-gold/60 hover:shadow-luxe transition"
+              className="group relative rounded-lg md:rounded-2xl border border-border bg-card p-2.5 md:p-5 text-center hover:border-gold/60 hover:shadow-luxe transition"
             >
-              <div className="grid h-10 w-10 md:h-12 md:w-12 mx-auto place-items-center rounded-lg md:rounded-xl gradient-navy text-gold mb-2 md:mb-3">
-                <Building2 className="h-5 w-5 md:h-6 md:w-6" />
+              <div className="grid h-9 w-9 md:h-12 md:w-12 mx-auto place-items-center rounded-lg md:rounded-xl gradient-navy text-gold mb-2 md:mb-3">
+                <Building2 className="h-4 w-4 md:h-6 md:w-6" />
               </div>
               <div className="text-[11px] md:text-xs font-bold text-navy-deep leading-snug">
                 {name}
@@ -883,7 +883,7 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="relative py-8 md:py-12 gradient-navy text-cream overflow-hidden"
+      className="relative py-7 md:py-12 gradient-navy text-cream overflow-hidden"
     >
       <img
         src={heroImg}
@@ -893,7 +893,7 @@ function Contact() {
       />
       <div className="absolute inset-0 bg-navy-deep/80" />
 
-      <div className="relative mx-auto max-w-7xl px-4 grid lg:grid-cols-2 gap-8 md:gap-12">
+      <div className="relative mx-auto max-w-7xl px-4 grid lg:grid-cols-2 gap-6 md:gap-12">
         <div>
           <SectionHead
             light
@@ -902,7 +902,7 @@ function Contact() {
             desc="فريقنا المتخصص جاهز للإجابة على استفساراتك وتقديم الاستشارة المناسبة لاحتياجاتك المالية والعقارية."
           />
 
-          <div className="mt-6 md:mt-10 space-y-4 md:space-y-5">
+          <div className="mt-5 md:mt-10 space-y-3 md:space-y-5">
             {[
               { i: Phone, t: "الهاتف", v: "8002440432", href: "tel:8002440432" },
               {
@@ -923,7 +923,7 @@ function Contact() {
               );
               return (
                 <div key={t} className="flex items-center gap-3 md:gap-4">
-                  <div className="grid h-10 w-10 md:h-12 md:w-12 shrink-0 place-items-center rounded-lg md:rounded-xl gradient-gold text-navy-deep">
+                  <div className="grid h-9 w-9 md:h-12 md:w-12 shrink-0 place-items-center rounded-lg md:rounded-xl gradient-gold text-navy-deep">
                     <Icon className="h-4 w-4 md:h-5 md:w-5" />
                   </div>
                   {href ? (
@@ -941,7 +941,7 @@ function Contact() {
 
         <form
           onSubmit={handleSubmit}
-          className="rounded-2xl md:rounded-3xl bg-cream p-5 md:p-8 shadow-luxe text-foreground"
+          className="rounded-xl md:rounded-3xl bg-cream p-4 md:p-8 shadow-luxe text-foreground"
           suppressHydrationWarning={true}
         >
           <h3 className="font-display text-lg md:text-2xl font-bold text-navy-deep">تواصل معنا</h3>
@@ -1021,8 +1021,8 @@ function Contact() {
 /* ---------------- FOOTER ---------------- */
 function Footer() {
   return (
-    <footer className="bg-navy-deep text-cream/70 py-6 md:py-8">
-      <div className="mx-auto max-w-7xl px-4 grid md:grid-cols-3 gap-6 md:gap-8 items-start">
+    <footer className="bg-navy-deep text-cream/70 py-5 md:py-8">
+      <div className="mx-auto max-w-7xl px-4 grid md:grid-cols-3 gap-5 md:gap-8 items-start">
         <div>
           <Logo light />
           <p className="mt-3 md:mt-4 text-xs md:text-sm leading-relaxed md:leading-loose text-cream/65 max-w-sm">
